@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [main]
 
-
 jobs:
   coffee_cafe_project:
     name: Coffee Cafe Project
@@ -31,5 +30,3 @@ jobs:
         with:
           name: test-reports
           path: target/surefire-reports
-
-  
