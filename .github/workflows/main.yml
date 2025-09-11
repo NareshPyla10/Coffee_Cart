@@ -24,7 +24,7 @@ jobs:
         run: ls -R
 
       - name: Build and Run Tests with Maven
-        run: mvn clean test
+        run: mvn clean compile test -DsuiteXmlFile=XMLFiles/Menu.xml
 
       - name: Upload Test Reports
         uses: actions/upload-artifact@v4
