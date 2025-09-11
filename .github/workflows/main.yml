@@ -7,23 +7,21 @@ on:
     branches: [main]
 
 jobs:
-  coffee_cafe_project:
-    name: Coffee Cart Project
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Github Repository
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Install java and maven
-        uses: actions/setup-java@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v3
         with:
-          java-version: '17'
           distribution: 'temurin'
-          cache: maven   
+          java-version: '17'
 
-      - name: Coffee cart project
-        run: mvn clean compile test -DsuiteXmlFile='XMLFiles/Menu.xml'
+      - name: Build and Test with Maven
+        run: mvn clean compile test -DsuiteXmlFile=XMLFiles/Menu.xml
+
 
       - name: Upload Test Reports
         uses: actions/upload-artifact@v4
