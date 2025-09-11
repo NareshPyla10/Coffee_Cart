@@ -8,7 +8,7 @@ on:
 
 jobs:
   coffee_cafe_project:
-    name: Coffee Cafe Project
+    name: Coffee Cart Project
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +22,7 @@ jobs:
           distribution: 'temurin'
           cache: maven   
 
-      - name: Coffee cafe project
+      - name: Coffee cart project
         run: mvn clean compile test -DsuiteXmlFile='XMLFiles/Menu.xml'
 
       - name: Upload Test Reports
