@@ -14,13 +14,13 @@ Feature: Validating coffee cart website
     And navigating to the cart link
     Then the cart should contain one item
 
-#  Scenario: Adding one item after that clicking plus symbol
-#    Given Launching the website
-#    When  click the menu link
-#    And Adding item to the cart
-#    And navigating to the cart link
-#    Then the cart should contain one item
-#    Then adding same item second time
+  Scenario: Adding one item after that clicking plus symbol
+    Given Launching the website
+    When  click the menu link
+    And Adding item to the cart
+    And navigating to the cart link
+    Then the cart should contain one item
+    Then adding same item second time
 
 
   Scenario: Getting total from the added items
@@ -48,8 +48,3 @@ Feature: Validating coffee cart website
         Then the cart should contain multiple items
         And adding same items to the cart second time
         Then pay the money for the items
-
-  Scenario: Printing all the item names
-    Given Launching the website
-    When click the menu link
-    And priniting all the item names

@@ -14,6 +14,7 @@ public class WebLaunchCommands {
 
     public void openingBrowser(String url){
        try {
+           System.out.println("url is :"+url);
            driver.get(url);
        }catch (Exception e){
            log.error(e.getMessage());

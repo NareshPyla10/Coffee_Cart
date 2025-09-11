@@ -1,5 +1,6 @@
 package pages;
 
+import com.aventstack.extentreports.util.Assert;
 import io.cucumber.java.sl.In;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,6 +12,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+
+
 
 import java.time.Duration;
 import java.util.List;
@@ -196,4 +201,13 @@ public class MenuPage extends BasePage{
             System.out.println(name);
         }
     }
+
+    public void validatingAllItemAreChangedIntoChinese(){
+        for (WebElement list: allItems){
+            String fullText = list.getAttribute("textContent");
+            String name = fullText.split("\\$")[0].trim();
+            boolean chinese = name.codePoints().anyMatch(ch -> Character.UnicodeScript.of(ch)==Character.UnicodeScript.HAN);
+        }
+    }
+
 }
