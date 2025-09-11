@@ -78,6 +78,9 @@ public class MenuPage extends BasePage{
     @FindBy(xpath = "//a[contains(@class,'router-link-active')]")
     private WebElement selectedMenu;
 
+    @FindBy(xpath = "//h4[@data-v-a9662a08]")
+    private List<WebElement> allItems;
+
     @Override
     public boolean waitForPageLoad() {
         try{
@@ -182,5 +185,15 @@ public class MenuPage extends BasePage{
         getWebClickCommands().clickElement(checkbox);
         getWebClickCommands().clickElement(submitButton);
         getWebTextCommands().getText(snackBar);
+    }
+
+
+    public void gettingAllItemNames(){
+        System.out.println("Found items: " + allItems.size());
+        for (WebElement names: allItems){
+            String fullText = names.getAttribute("textContent");
+            String name = fullText.split("\\$")[0].trim();
+            System.out.println(name);
+        }
     }
 }

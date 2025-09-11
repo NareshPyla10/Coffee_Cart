@@ -73,4 +73,9 @@ public class MenuStepDef {
         System.out.println("The payment is success");
         testContest.getPageObjectManager().menuPage().getWebLaunchCommands().quitBrowser();
     }
+
+    @And("priniting all the item names")
+    public void prinitingAllTheItemNames() {
+        testContest.getPageObjectManager().menuPage().gettingAllItemNames();
+    }
 }
