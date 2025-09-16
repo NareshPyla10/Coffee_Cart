@@ -23,7 +23,7 @@ jobs:
           cache: maven   
 
       - name: Running the Project with Github Actions
-        run: mvn clean test
+        run: mvn test
         
       - name: List Surefire Reports 
         run: ls -l target/surefire-reports
