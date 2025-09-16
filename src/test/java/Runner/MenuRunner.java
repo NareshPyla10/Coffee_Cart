@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 
 @CucumberOptions(
-        features = "classpath:features",
+        features = "src/test/resources/features/Menu.feature",
         glue = "StepDef",
         plugin = { "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         monochrome = true
