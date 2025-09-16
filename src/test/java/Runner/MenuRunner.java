@@ -5,16 +5,12 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 
+
 @CucumberOptions(
-        features = "C:\\Users\\nares\\IdeaProjects\\CoffeeCart\\src\\test\\resources\\features\\Menu.feature",
-        glue = "StepDef",
-        monochrome = true,
-        plugin = {
-                "pretty",                               // ✅ Better console output format
-                "html:target/cucumber-reports.html",    // ✅ HTML report
-                "json:target/cucumber.json",            // ✅ JSON report
-                "junit:target/cucumber.xml"             // ✅ JUnit XML report
-        }
+        features = "classpath:features",  // ✅ better than hardcoding src/test/resources
+        glue = "StepDef",                              // ✅ your step definition package
+        plugin = { "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+        monochrome = true
 )
 public class MenuRunner extends AbstractTestNGCucumberTests {
 }
