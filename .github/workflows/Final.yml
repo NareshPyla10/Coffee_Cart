@@ -7,29 +7,37 @@ on:
     branches: [main]
 
 jobs:
-  running_the_project_with_github_actions:
-    name: Running the Project with Github Actions
+  run-tests:
+    name: Run Tests with Maven and TestNG
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Github Repository
+      - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install java and maven
+      - name: 🧪 Debug - List XML Files in Test Resources
+        run: |
+          echo "Listing XML files in src/test/resources:"
+          find src/test/resources -name "*.xml" || echo "No XML files found."
+
+      - name: ☕ Set up Java and Maven
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: maven   
+          cache: maven
 
-      - name: Running the Project with Github Actions
-        run: mvn clean test "-Dsurefire.suiteXmlFiles=src/test/resources/TestNGXmlFiles/Menu.xml"
-        
-      - name: List Surefire Reports 
-        run: ls -l target/surefire-reports
+      - name: 🚀 Run TestNG Suite via Maven
+        run: mvn clean test "-Dsurefire.suiteXmlFiles=TestNGXmlFiles/Menu.xml"
 
-      - name: Upload Test Reports
-        if: always() # This ensures the step runs even if the previous steps fail
+      - name: 📄 List Surefire Reports
+        if: always()
+        run: |
+          echo "Listing surefire-reports directory:"
+          ls -R target/surefire-reports || echo "Surefire reports not found."
+
+      - name: 📦 Upload Test Reports
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-reports
