@@ -23,12 +23,13 @@ jobs:
           cache: maven   
 
       - name: Running the Project with Github Actions
-        run: mvn test
+        run: mvn test -e
         
       - name: List Surefire Reports 
         run: ls -l target/surefire-reports
 
       - name: Upload Test Reports
+        if: always() # This ensures the step runs even if the previous steps fail
         uses: actions/upload-artifact@v4
         with:
           name: test-reports
