@@ -106,8 +106,8 @@
                     <suiteXmlFiles>
                         <!--suppress UnresolvedMavenProperty -->
 <!--                        <suiteXmlFile>TestNGXmlFiles/Menu.xml</suiteXmlFile>-->
-<!--                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>-->
-                        <suiteXmlFile>src/test/resources/TestNGXmlFiles/Menu.xml</suiteXmlFile>
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+<!--                        <suiteXmlFile>src/test/resources/TestNGXmlFiles/Menu.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
