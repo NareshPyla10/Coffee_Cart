@@ -23,7 +23,7 @@ jobs:
           cache: maven   
 
       - name: Running the Project with Github Actions
-        run: mvn test -e
+        run: mvn clean test "-Dsurefire.suiteXmlFiles=src/test/resources/TestNGXmlFiles/Menu.xml"
         
       - name: List Surefire Reports 
         run: ls -l target/surefire-reports
